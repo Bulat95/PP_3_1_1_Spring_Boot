@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot311" />
+        <module name="PP_3_1_1_Spring_Boot" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PP_3_1_1_Spring_Boot" options="-parameters" />
       <module name="springboot311" options="-parameters" />
     </option>
   </component>
