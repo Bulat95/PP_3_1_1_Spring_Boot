@@ -29,6 +29,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public void updateUser(User user) {
+        repository.save(user);
+    }
+
+    @Override
     public User getUserById(Long id) {
         Optional<User> optional = repository.findById(id);
         return optional.get();
