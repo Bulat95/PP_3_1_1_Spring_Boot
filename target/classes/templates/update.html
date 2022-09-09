@@ -13,7 +13,7 @@
   <h3>Spring Boot CRUD</h3>
   <hr>
   <h4>Update User List</h4>
-  <form action="#" th:action="@{/saveUserAttr}" th:object="${user}" method="POST">
+  <form action="#" th:action="@{/updateUserAttr}" th:object="${user}" method="POST">
     <!-- add hidden form field to handle update -->
     <input type="hidden" th:field="*{id}">
     <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">

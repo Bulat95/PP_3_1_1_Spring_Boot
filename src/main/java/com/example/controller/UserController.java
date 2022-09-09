@@ -41,6 +41,13 @@ public class UserController {
         return "redirect:/";
     }
 
+    @PostMapping("/updateUserAttr")
+    public String updateUser(@ModelAttribute("user") User user) {
+        // update user to database
+        service.saveUser(user);
+        return "redirect:/";
+    }
+
     @GetMapping("/showFormForUpdate/{id}")
     public String editFormForUpdate(@PathVariable("id") Long id, Model model) {
         // get user from the service
