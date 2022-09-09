@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.User;
 import com.example.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.example.model.User;
-
 
 @Controller
 public class UserController {
@@ -21,13 +20,15 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String getUserList(Model model) {
+    public String getListUsers(Model model) {
+        // display list of users
         model.addAttribute("listUsers", service.getAllUsers());
         return "index";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/showNewUserForm")
     public String getNewUserForm(Model model) {
+        // create model attribute to bind form data
         User user = new User();
         model.addAttribute("user", user);
         return "new";
@@ -40,7 +41,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/showFormForUpdate/{id}")
     public String editFormForUpdate(@PathVariable("id") Long id, Model model) {
         // get user from the service
         User user = service.getUserById(id);
