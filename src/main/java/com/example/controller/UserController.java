@@ -44,7 +44,7 @@ public class UserController {
     @PostMapping("/updateUserAttr")
     public String updateUser(@ModelAttribute("user") User user) {
         // update user to database
-        service.updateUser(user);
+        service.updateUser(user, user.getId());
         return "redirect:/";
     }
 
